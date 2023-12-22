@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab16.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!-- Define un estilo para el ListView -->
+            <Style x:Key="ListViewStyle"
+                   TargetType="ListView">
+                <Setter Property="BackgroundColor"
+                        Value="LightGray" />
+                <Setter Property="Margin"
+                        Value="10,10,10,10" />
+                <Setter Property="SeparatorVisibility"
+                        Value="Default" />
+                <Setter Property="SeparatorColor"
+                        Value="DarkGray" />
+            </Style>
+            <!-- Define un estilo para las celdas del ListView -->
+            <Style x:Key="ListViewItemStyle"
+                   TargetType="TextCell">
+                <Setter Property="TextColor"
+                        Value="Blue" />
+                <Setter Property="DetailColor"
+                        Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <StackLayout>
+        <!-- Aplica el estilo al ListView -->
+        <ListView x:Name="ltUsuario"
+                  Style="{StaticResource ListViewStyle}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Aplica el estilo a las celdas del ListView -->
+                    <TextCell Text="{Binding Id}"
+                              Detail="{Binding Title}"
+                              StyleId="{StaticResource ListViewItemStyle}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
